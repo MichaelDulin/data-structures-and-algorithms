@@ -6,16 +6,11 @@ CHALLENGE 1 - Review
 Write a function that iterates over an array of people objects
 and creates a new list of each person's full name using the array method 'map'.
 Each object will have the shape {firstName:string, lastName:string}
-
-
-E.g.                    [ { firstName:"Jane", lastName:"Doe" }, { firstName:"James", lastName:"Bond"}]
-should convert to       ["Jane Doe", "James Bond"]
-
-
+E.g. [ { firstName:"Jane", lastName:"Doe" }, { firstName:"James", lastName:"Bond"}]
+should convert to ["Jane Doe", "James Bond"]
 Note the space in between first and last names.
 You can assume that neither firstName nor lastName will be blank
 ------------------------------------------------------------------------------------------------ */
-
 const toLastNames = people => {
   let newArr = people.map(finalVal => finalVal.firstName + ' ' + finalVal.lastName);
   return newArr;
@@ -54,6 +49,7 @@ const addPurchases = (arr) => {
   return totalPrice;
 };
 
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
@@ -63,7 +59,7 @@ Note: You may not use the array's built-in length property.
 ------------------------------------------------------------------------------------------------ */
 
 const countNumberOfElements = (arr) => {
-
+  return arr.reduce((count) => count + 1);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -123,7 +119,10 @@ let starWarsData = [{
 }];
 
 const returnNames = (arr) => {
-  // Solution code here...
+  return arr.reduce((nameArr, cur) => {
+    nameArr.push(cur.name);
+    return nameArr;
+  },[]);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -135,8 +134,34 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 ------------------------------------------------------------------------------------------------ */
 
 const reversedString = (str) => {
-  // Solution code here...
+  let strArr = str.split('');
+  return strArr.reduceRight((curArr, idx) => curArr.concat(idx));
 };
+
+
+/*
+
+const reversedString2 = (str) => {
+  let strArr = str.split('');
+  return strArr.reduce((letters, characters) => {
+    return characters + letters;
+  },'');
+};
+
+
+const reversedString3 = (str) => str.split('').reduce((accumulator, cur) => cur + accumulator, '');
+
+
+const reversedString4 = (str) => {
+  let strArr = str.split('');
+  let newArr = [];
+  for (let i = strArr.length; i >= 0; i--){
+    newArr.push(strArr[i]);
+  }
+  return newArr.toString('');
+};
+
+*/
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
