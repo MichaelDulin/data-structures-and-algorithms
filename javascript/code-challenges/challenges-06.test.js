@@ -23,7 +23,10 @@ Returns: ['dyoll', 'eimaj'];
 ------------------------------------------------------------------------------------------------ */
 
 const getNames = (arr) => {
-  // Solution code here...
+  return arr.map(curVal => {
+    let revStr = curVal.name.split('');
+    return revStr.reverse().join('');
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -34,7 +37,8 @@ Write a function that appends ' The end.' to a string, and returns the modified 
 ------------------------------------------------------------------------------------------------ */
 
 const appendTheEnd = (str) => {
-  // Solution code here...
+  let newStr = str;
+  return newStr + ' The end.';
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -50,9 +54,7 @@ appendFirstToLast(a);
 console.log(a) prints [1, 2, 3, 1]
 ------------------------------------------------------------------------------------------------ */
 
-const appendFirstToLast = (arr) => {
-  // Solution code here...
-};
+const appendFirstToLast = (arr) => {arr.push(arr[0]);};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -70,7 +72,7 @@ console.log(a) prints { fullName: 'Octavia Estelle Butler', yearBorn: 1947 }
 ------------------------------------------------------------------------------------------------ */
 
 const addBirthYearProperty = (obj, year) => {
-  // Solution code here...
+  obj.yearBorn = year;
 };
 
 /* ------------------------------------------------------------------------------------------------
