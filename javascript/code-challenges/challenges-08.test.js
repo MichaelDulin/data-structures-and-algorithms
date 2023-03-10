@@ -53,18 +53,24 @@ let characters = [
 ];
 
 const sortByChildren = (charArray) => {
-  // Solution code here...
+  let x = charArray.sort((a, b) => a.children.length - b.children.length);
+  let y = x.foreach(element => {
+    if (element.children === null){
+      return y.push(element);
+    }
+    console.log(y);
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
-Write a function named containsW that takes in a string. This function should use a regular expression pattern to return true if the string contains the letter 'w' in lower case or false if it does not. 
+Write a function named containsW that takes in a string. This function should use a regular expression pattern to return true if the string contains the letter 'w' in lower case or false if it does not.
 
 ------------------------------------------------------------------------------------------------ */
 
 const containsW = (str) => {
-  // Solution code here...
+  return /w/.test(str);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -80,8 +86,9 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const isNum = (input) => {
-  // Solution code here...
+  return /\d/.test(input);
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -91,7 +98,7 @@ Write a function named containsWorld that takes in a string or number of any len
 ------------------------------------------------------------------------------------------------ */
 
 const containsWorld = (input) => {
-  // Solution code here...
+  return /(world)/.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -103,8 +110,21 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  // Solution code here...
+  let regexResult = /[A-Z]/.test(str);
+  if (regexResult === false){
+    let tempArr = [];
+    return tempArr;
+  }
+  let regex = /([A-Z])\w+/g;
+  let capArr = str.match(regex);
+  console.log(capArr);
+  return capArr;
 };
+
+// ([A-Z])\w+
+
+// ('We only want to Return the Words that begin With a capital Letter')
+// ["We", "Return", "Words", "With", "Letter"]
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
