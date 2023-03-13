@@ -53,13 +53,8 @@ let characters = [
 ];
 
 const sortByChildren = (charArray) => {
-  let x = charArray.sort((a, b) => a.children.length - b.children.length);
-  let y = x.foreach(element => {
-    if (element.children === null){
-      return y.push(element);
-    }
-    console.log(y);
-  });
+  const newArr = charArray.sort((a, b) => a.name - b.name ? 1 : -1);
+  return newArr.sort((a, b) => a.children.length - b.children.length);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -117,7 +112,6 @@ const isCapitalized = (str) => {
   }
   let regex = /([A-Z])\w+/g;
   let capArr = str.match(regex);
-  console.log(capArr);
   return capArr;
 };
 
@@ -133,7 +127,8 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
-  // Solution code here...
+  let cityCapPatter = /^[A-J]/;
+  return arr.filter(city => cityCapPatter.test(city));
 };
 
 /* ------------------------------------------------------------------------------------------------
