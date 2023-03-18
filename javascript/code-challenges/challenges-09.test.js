@@ -37,8 +37,7 @@ Write a function named checkValues that takes in an object and a value and retur
 ------------------------------------------------------------------------------------------------ */
 
 const checkValues = (obj, value) => {
-  let regex = new RegExp(`(${value})`, 'mg');
-  return obj.test(regex);
+  return Object.values(obj).includes(value);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -121,6 +120,7 @@ const characters = [
 
 const getHouses = (arr) => {
   let houses = [];
+  arr.map(i => houses.push(i.house));
   return houses;
 };
 
