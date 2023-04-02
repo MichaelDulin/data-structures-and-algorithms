@@ -24,7 +24,7 @@ For example, ['apple', 'banana', 'MacGyver'] returns ['Apple', 'Banana', 'MacGyv
 ------------------------------------------------------------------------------------------------ */
 
 const toTitleCase = (arr) => {
-  return arr.map(i => {
+  return arr.map((i) => {
     return i.charAt(0).toUpperCase() + i.slice(1);
   });
 };
@@ -103,7 +103,17 @@ let starWarsData = [
 ];
 
 let biggerThanLuke = (arr) => {
-  // Solution code here...
+  if (arr.length > 0) {
+    let lukeMass = parseInt(
+      arr.find((obj) => obj.name === 'Luke Skywalker').mass
+    );
+    return arr
+      .filter((obj) => parseInt(obj.mass) > lukeMass)
+      .map((obj) => obj.name)
+      .join(' - ');
+  } else {
+    return '';
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -121,7 +131,9 @@ This data could be sorted by name or price.
 ------------------------------------------------------------------------------------------------ */
 
 const sortBy = (property, arr) => {
-  // Solution code here...
+  return property === 'name'
+    ? arr.sort((a, b) => a.name.localeCompare(b.name))
+    : arr.sort((a, b) => a.price - b.price);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -137,7 +149,8 @@ https://secure.com returns true because the URL is secure
 https:/missingslash.org returns false because the URL is malformed
 ------------------------------------------------------------------------------------------------ */
 const isSecure = (url) => {
-  // Solution code here...
+  let regex = /^https:\/\//gm;
+  return regex.test(url);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -160,7 +173,41 @@ Here is a sample board:
 ------------------------------------------------------------------------------------------------ */
 
 const detectTicTacToeWin = (board) => {
-  // Solution code here...
+  for (let i in board) {
+    if (
+      board[i][0] === 'X' &&
+      board[i][1] === 'X' &&
+      board[i][2] === 'X') { return true; }
+    else if (
+      board[i][0] === 'O' &&
+      board[i][1] === 'O' &&
+      board[i][2] === 'O') { return true; }
+    else if (
+      board[0][i] === 'X' &&
+      board[1][i] === 'X' &&
+      board[2][i] === 'X') { return true; }
+    else if (
+      board[0][i] === 'O' &&
+      board[1][i] === 'O' &&
+      board[2][i] === 'O') { return true; }
+  }
+  if (
+    board[0][0] === 'X' &&
+    board[1][1] === 'X' &&
+    board[2][2] === 'X') { return true; }
+  else if (
+    board[0][0] === 'O' &&
+    board[1][1] === 'O' &&
+    board[2][2] === 'O') { return true; }
+  else if (
+    board[2][0] === 'X' &&
+    board[1][1] === 'X' &&
+    board[0][2] === 'X') { return true; }
+  else if (
+    board[2][0] === 'O' &&
+    board[1][1] === 'O' &&
+    board[0][2] === 'O') { return true; }
+  return false;
 };
 
 /* ------------------------------------------------------------------------------------------------
