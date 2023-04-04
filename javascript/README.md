@@ -83,3 +83,9 @@ From the `data-structures-and-algorithms/javascript` folder, execute the followi
 #### Live Tests
 
 Note that when you check your code into GitHub, all of your tests will automatically execute. These results should match your own, and will be found on the  **Actions** tab
+
+## 401 Whiteboard Challenge
+
+# Code Challenge 1
+
+![challenge1](./Screenshot 2023-04-03 203732.png)
