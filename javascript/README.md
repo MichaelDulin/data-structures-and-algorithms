@@ -88,4 +88,4 @@ Note that when you check your code into GitHub, all of your tests will automatic
 
 # Code Challenge 1
 
-![challenge1](./Screenshot 2023-04-03 203732.png)
+![challenge1](./WBChallenge1.png)
