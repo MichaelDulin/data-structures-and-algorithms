@@ -89,3 +89,8 @@ Note that when you check your code into GitHub, all of your tests will automatic
 # Code Challenge 1
 
 ![challenge1](./WBChallenge1.png)
+
+
+# Code Challenge 2
+
+![challenge2](./WBChallenge2.png)
