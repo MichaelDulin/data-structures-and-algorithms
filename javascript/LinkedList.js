@@ -12,6 +12,7 @@ class LinkedList {
     this.head = null;
   }
 
+  // Add to front
   insert(val){
     let newNode = new Node(val);
     if (this.head === null) {
@@ -23,6 +24,7 @@ class LinkedList {
     newNode.next = curHead;
   }
 
+  // Find Value
   includes(val){
     let cur = this.head;
     while(cur !== null){
@@ -34,6 +36,7 @@ class LinkedList {
     return false;
   }
 
+  // Print Linked List
   toString(){
     let cur = this.head;
     let returnStr = ' ';
@@ -43,6 +46,54 @@ class LinkedList {
     }
     return returnStr += 'NULL';
   }
+
+  // Add to end
+  append(val){
+    let node = new Node(val);
+    if (this.head === null) {
+      this.head = node;
+      return;
+    }
+    let cur = this.head;
+    while(cur !== null) {
+      cur = cur.next;
+    }
+    this.head = node;
+    node.next = cur;
+  }
+
+  // Add new node before specified node
+  insertBefore(targetVal, newVal){
+    let node = new Node(newVal);
+    if (this.includes(targetVal) === false) {
+      console.log('Could not find value - adding to HEAD');
+      this.head = node;
+      return;
+    }
+    let cur = this.head;
+    while(cur.next.next !== targetVal){
+      cur = cur.next;
+    }
+    cur.next = node;
+    node.next = cur.next.next;
+  }
+
+  // Add new node after specified node
+  insertAfter(targetVal, newVal){
+    let node = new Node(newVal);
+    if (this.includes(targetVal) === false) {
+      console.log('Could not find value - adding to HEAD');
+      this.head = node;
+      return;
+    }
+    let cur = this.head;
+    while(cur !== targetVal){
+      cur = cur.next;
+    }
+    cur.next = node;
+    node.next = cur.next.next;
+  }
+
 }
 
 
