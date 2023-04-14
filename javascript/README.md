@@ -102,3 +102,6 @@ Note that when you check your code into GitHub, all of your tests will automatic
 # Code Challenge 4
 
 ![challenge4](./WBChallenge4.png)
+
+# Code Challenge 9
+<img width="626" alt="WBChallenge9" src="https://user-images.githubusercontent.com/73040864/231940464-96c0035b-6013-42de-bf09-25d05caa214c.png">
