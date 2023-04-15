@@ -94,18 +94,43 @@ class LinkedList {
     node.next = cur.next.next;
   }
 
-}
-
-const zip = (list1, list2) => {
-  let cur1 = list1.head;
-  let cur2 = list2.head;
-  let finalList = new LinkedList;
-  let counter = 1;
-  while (cur1 !== null && cur2 !== null) {
-    if (counter % 2 !== 0){
-      let val = new
+  zip(list1, list2) {
+    let cur1 = list1.head;
+    let cur2 = list2.head;
+    let finalList = new LinkedList;
+    let counter = 1;
+    while (cur1 !== null && cur2 !== null) {
+      if (counter % 2 !== 0){
+        let val = new
+      }
     }
   }
-};
+
+}
+
+class Stack{
+  constructor() {
+    this.top = null;
+    this.element = elm;
+  }
+
+}
+
+class Stack{
+  constructor() {
+    this.front = null;
+    this.element = elm;
+  }
+
+}
+
+
+
+
+
+
+
+
+
 
 module.exports = LinkedList;
