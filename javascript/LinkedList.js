@@ -27,7 +27,7 @@ class LinkedList {
   // Find Value
   includes(val){
     let cur = this.head;
-    while(cur !== null){
+    while(cur.data !== null){
       if (cur.data === val) {
         return true;
       }
@@ -40,7 +40,7 @@ class LinkedList {
   toString(){
     let cur = this.head;
     let returnStr = ' ';
-    while (cur !== null) {
+    while (cur.data !== null) {
       returnStr += `{ ${cur.data} } -> `;
       cur = cur.next;
     }
@@ -59,7 +59,7 @@ class LinkedList {
       cur = cur.next;
     }
     this.head = node;
-    node.next = cur;
+    node.next = cur.data;
   }
 
   // Add new node before specified node
@@ -72,9 +72,9 @@ class LinkedList {
     }
     let cur = this.head;
     while(cur.next.next !== targetVal){
-      cur = cur.next;
+      cur.data = cur.next;
     }
-    cur.next = node;
+    node.data = cur.next;
     node.next = cur.next.next;
   }
 
@@ -87,14 +87,50 @@ class LinkedList {
       return;
     }
     let cur = this.head;
-    while(cur !== targetVal){
-      cur = cur.next;
+    while(cur.data !== targetVal){
+      cur.data = cur.next;
     }
     cur.next = node;
     node.next = cur.next.next;
   }
 
+  zip(list1, list2) {
+    let cur1 = list1.head;
+    let cur2 = list2.head;
+    let finalList = new LinkedList;
+    let counter = 1;
+    while (cur1 !== null && cur2 !== null) {
+      if (counter % 2 !== 0){
+        let val = new
+      }
+    }
+  }
+
 }
+
+class Stack{
+  constructor() {
+    this.top = null;
+    this.element = elm;
+  }
+
+}
+
+class Stack{
+  constructor() {
+    this.front = null;
+    this.element = elm;
+  }
+
+}
+
+
+
+
+
+
+
+
 
 
 module.exports = LinkedList;
