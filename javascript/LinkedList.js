@@ -108,23 +108,64 @@ class LinkedList {
 
 }
 
-class Stack{
+class Stack {
   constructor() {
-    this.top = null;
-    this.element = elm;
+    this.items = [];
   }
 
-}
-
-class Stack{
-  constructor() {
-    this.front = null;
-    this.element = elm;
+  push(element) {
+    this.items.push(element);
   }
 
+  pop() {
+    if (this.items.length == 0)
+      return "Underflow";
+    return this.items.pop();
+  }
+
+  peek() {
+    if (this.items.length == 0)
+      return "No elements in Stack";
+    return this.items[this.items.length - 1];
+  }
+
+  isEmpty() {
+    return this.items.length == 0;
+  }
+
+  size() {
+    return this.items.length;
+  }
 }
 
+class Queue {
+  constructor() {
+    this.elements = {};
+    this.head = 0;
+    this.tail = 0;
+  }
+  enqueue(element) {
+    this.elements[this.tail] = element;
+    this.tail++;
+  }
+  dequeue() {
+    const item = this.elements[this.head];
+    delete this.elements[this.head];
+    this.head++;
+    return item;
+  }
+  peek() {
+    return this.elements[this.head];
+  }
 
+  get length() {
+    return this.tail - this.head;
+  }
+  
+  get isEmpty() {
+    return this.length === 0;
+  }
+}
 
 
 
