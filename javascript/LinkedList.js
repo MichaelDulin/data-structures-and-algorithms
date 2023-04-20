@@ -202,4 +202,26 @@ class PseudoQueue extends Stack {
   }
 }
 
+class AnimalShelter extends Queue {
+  dequeue(pref) {
+    if (pref !== "dog" && pref !== "cat" ) {
+      return null;
+    }
+    if (this.front === null) {
+      return 'empty queue';
+    } else {
+      let current = this.front;
+      let pre = {};
+      while (pref !== current.value.species){
+        pre = current;
+        current = current.next;
+      }
+      pre.next = current.next;
+      current.next = null;
+      return current.value.species;
+    }
+  }
+}
+
+
 module.exports = LinkedList;
