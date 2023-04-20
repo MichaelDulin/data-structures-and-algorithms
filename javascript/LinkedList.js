@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 class Node {
   constructor(data) {
@@ -13,7 +13,7 @@ class LinkedList {
   }
 
   // Add to front
-  insert(val){
+  insert(val) {
     let newNode = new Node(val);
     if (this.head === null) {
       this.head = newNode;
@@ -25,10 +25,10 @@ class LinkedList {
   }
 
   // Find Value
-  includes(val){
+  includes(val) {
     let cur = this.head;
-    while(cur.data !== null){
-      if (cur.data === val) {
+    while (cur !== null) {
+      if (cur === val) {
         return true;
       }
       cur = cur.next;
@@ -37,141 +37,169 @@ class LinkedList {
   }
 
   // Print Linked List
-  toString(){
+  toString() {
     let cur = this.head;
-    let returnStr = ' ';
-    while (cur.data !== null) {
-      returnStr += `{ ${cur.data} } -> `;
+    let returnStr = " ";
+    while (cur !== null) {
+      returnStr += `{ ${cur} } -> `;
       cur = cur.next;
     }
-    return returnStr += 'NULL';
+    return (returnStr += "NULL");
   }
 
   // Add to end
-  append(val){
+  append(val) {
     let node = new Node(val);
     if (this.head === null) {
       this.head = node;
       return;
     }
     let cur = this.head;
-    while(cur !== null) {
+    while (cur !== null) {
       cur = cur.next;
     }
     this.head = node;
-    node.next = cur.data;
+    node.next = cur;
   }
 
   // Add new node before specified node
-  insertBefore(targetVal, newVal){
+  insertBefore(targetVal, newVal) {
     let node = new Node(newVal);
     if (this.includes(targetVal) === false) {
-      console.log('Could not find value - adding to HEAD');
+      console.log("Could not find value - adding to HEAD");
       this.head = node;
       return;
     }
     let cur = this.head;
-    while(cur.next.next !== targetVal){
-      cur.data = cur.next;
+    while (cur.next.next !== targetVal) {
+      cur = cur.next;
     }
-    node.data = cur.next;
+    node = cur.next;
     node.next = cur.next.next;
   }
 
   // Add new node after specified node
-  insertAfter(targetVal, newVal){
+  insertAfter(targetVal, newVal) {
     let node = new Node(newVal);
     if (this.includes(targetVal) === false) {
-      console.log('Could not find value - adding to HEAD');
+      console.log("Could not find value - adding to HEAD");
       this.head = node;
       return;
     }
     let cur = this.head;
-    while(cur.data !== targetVal){
-      cur.data = cur.next;
+    while (cur !== targetVal) {
+      cur = cur.next;
     }
     cur.next = node;
     node.next = cur.next.next;
   }
-
-  zip(list1, list2) {
-    let cur1 = list1.head;
-    let cur2 = list2.head;
-    let finalList = new LinkedList;
-    let counter = 1;
-    while (cur1 !== null && cur2 !== null) {
-      if (counter % 2 !== 0){
-        let val = new
-      }
-    }
-  }
-
 }
 
 class Stack {
   constructor() {
-    this.items = [];
+    this.top = null;
   }
 
-  push(element) {
-    this.items.push(element);
+  push(value) {
+    let node = new Node(value);
+    if (this.top === null) {
+      this.top = node;
+    } else {
+      node.next = this.top;
+      this.top = node;
+    }
   }
 
   pop() {
-    if (this.items.length == 0)
-      return "Underflow";
-    return this.items.pop();
+    if (this.top === null) {
+      return null;
+    }
+    let temp = this.top;
+    this.top = temp.next;
+    temp.next = null;
+    return temp.value;
   }
 
   peek() {
-    if (this.items.length == 0)
-      return "No elements in Stack";
-    return this.items[this.items.length - 1];
+    return this.top === null ? null : this.top.value;
   }
 
   isEmpty() {
-    return this.items.length == 0;
-  }
-
-  size() {
-    return this.items.length;
+    return this.top === null ? true : false;
   }
 }
 
 class Queue {
   constructor() {
-    this.elements = {};
-    this.head = 0;
-    this.tail = 0;
-  }
-  enqueue(element) {
-    this.elements[this.tail] = element;
-    this.tail++;
-  }
-  dequeue() {
-    const item = this.elements[this.head];
-    delete this.elements[this.head];
-    this.head++;
-    return item;
-  }
-  peek() {
-    return this.elements[this.head];
+    this.front = null;
+    this.end = null;
   }
 
-  get length() {
-    return this.tail - this.head;
+  enqueue(value) {
+    let node = new Node(value);
+    if (this.front === null) {
+      this.front = node;
+      this.end = node;
+    } else {
+      let cur = this.front;
+      while (cur.next) {
+        cur = cur.next;
+      }
+      cur.next = node;
+      this.end = node;
+    }
   }
-  
-  get isEmpty() {
-    return this.length === 0;
+
+  dequeue() {
+    if (this.front === null) {
+      return null;
+    }
+    let temp = this.front;
+    this.front = temp.next;
+    temp.next = null;
+    return temp.value;
+  }
+
+  peek() {
+    return this.front === null ? null : this.front.value;
+  }
+
+  isEmpty() {
+    if (this.front === null) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
 
+class PseudoQueue extends Stack {
+  constructor() {
+    super();
+    this.stack1 = new Stack();
+    this.stack2 = new Stack();
+  }
 
+  enqueue(value) {
+    this.stack1.push(value);
+    return this.stack1;
+  }
 
-
-
-
-
+  dequeue() {
+    if (this.stack1.top === null) {
+      return 'Stack is already empty';
+    } else if (this.stack1.top.next === null) {
+      this.stack1.pop();
+    }
+    while (this.stack1.top !== null) {
+      this.stack2.push(this.stack1.pop());
+    }
+    let remove = this.stack2.pop();
+    while (this.stack2.top !== null) {
+      this.stack1.push(this.stack2.pop());
+    }
+    return remove;
+  }
+}
 
 module.exports = LinkedList;
