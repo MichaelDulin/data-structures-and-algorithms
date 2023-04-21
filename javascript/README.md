@@ -105,3 +105,7 @@ Note that when you check your code into GitHub, all of your tests will automatic
 
 # Code Challenge 9
 <img width="626" alt="WBChallenge9" src="https://user-images.githubusercontent.com/73040864/231940464-96c0035b-6013-42de-bf09-25d05caa214c.png">
+
+# Code Challenge 14
+<img width="1161" alt="Screenshot 2023-04-20 at 10 43 41 PM" src="https://user-images.githubusercontent.com/73040864/233550267-385f85f6-4fe8-48f2-a618-03b5ce6208fc.png">
+
