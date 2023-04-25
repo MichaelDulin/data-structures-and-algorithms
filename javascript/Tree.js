@@ -74,11 +74,43 @@ class BinarySearchTree extends BinaryTree{
         }
       }
     };
+    this.root === null ? this.root = node : addNode(this.root, node);
+  }
+
+  contains(value) {
+    const recurse = (curNode, curVal) => {
+      // return curNode.value === curVal ? true : curNode.left === null && curNode.right === null ? false : curNode.value > curVal ? recurse(curNode.value, curVal) : recurse(curNode.right, curVal);
+      if (curNode.value === curVal) {
+        return true;
+      } else if (curNode.left === null && curNode.right === null) {
+        return false;
+      } else if (curNode.value > curVal) {
+        return recurse(curNode.value, curVal);
+      } else if (curNode.value <= curVal) {
+        return recurse(curNode.right, curVal);
+      }
+    };
+    return this.root === null ? false : recurse(this.root, value);
+  }
+
+  getMax() {
+    let curMax = null;
+    const recurse = (node) => {
+      if (node.value > curMax) {
+        curMax = node.value;
+      }
+      if (node.left !== null) {
+        recurse(node.left);
+      }
+      if (node.right !== null) {
+        recurse(node.right);
+      }
+    };
     if (this.root === null) {
-      this.root = node;
-    } else {
-      addNode(this.root, node);
+      return 'No values found in tree';
     }
+    recurse(this.root);
+    return curMax;
   }
 }
 
