@@ -25,14 +25,13 @@ class BinaryTree {
       }
     };
     recurse(this.root);
-    return(treeArr);
+    return treeArr;
   }
-
 
   inOrder() {
     const treeArr = [];
     const recurse = (root) => {
-      if(root.left) {
+      if (root.left) {
         recurse(root.left);
       }
       treeArr.push(root.value);
@@ -47,34 +46,36 @@ class BinaryTree {
   postOrder() {
     const treeArr = [];
     const recurse = (root) => {
-      root.left ? recurse(root.left) : root.right ? recurse(root.right) : treeArr.push(root.value)
+      root.left
+        ? recurse(root.left)
+        : root.right
+          ? recurse(root.right)
+          : treeArr.push(root.value);
     };
     recurse(this.root);
     return treeArr;
   }
 }
 
-
-class BinarySearchTree extends BinaryTree{
+class BinarySearchTree extends BinaryTree {
   add(value) {
-    // Return: nothing
     let node = new Node(value);
     const addNode = (curNode, newNode) => {
       if (curNode.value > newNode.value) {
         if (curNode.left === null) {
-          return curNode.left = newNode;
+          return (curNode.left = newNode);
         } else {
           addNode(curNode.left, newNode);
         }
       } else {
         if (curNode.right === null) {
-          return curNode.right = newNode;
+          return (curNode.right = newNode);
         } else {
           addNode(curNode.right, newNode);
         }
       }
     };
-    this.root === null ? this.root = node : addNode(this.root, node);
+    this.root === null ? (this.root = node) : addNode(this.root, node);
   }
 
   contains(value) {
@@ -112,6 +113,29 @@ class BinarySearchTree extends BinaryTree{
     recurse(this.root);
     return curMax;
   }
+
+  breadthFirst() {
+    const treeArr = [];
+    const recurse = (node, parent) => {
+      treeArr.push(node);
+      if (parent.left === node.value) {
+        parent = node;
+        node = parent.right;
+      } else if (parent.right === node.value) {
+        parent = node;
+        node = parent.left;
+      }
+      if (node.left) {
+        node = node.left;
+      } else if (node.right) {
+        node = node.right;
+      }
+      recurse(node, parent);
+    };
+    if (this.root === null) {
+      return 'No values found in tree';
+    }
+    recurse(this.root);
+    return treeArr;
+  }
 }
-
-
