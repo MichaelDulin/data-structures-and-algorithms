@@ -110,13 +110,16 @@ Note that when you check your code into GitHub, all of your tests will automatic
 <img width="1161" alt="Screenshot 2023-04-20 at 10 43 41 PM" src="https://user-images.githubusercontent.com/73040864/233550267-385f85f6-4fe8-48f2-a618-03b5ce6208fc.png">
 
 # Code Challenge 26
-![WB26](https://github.com/MichaelDulin/data-structures-and-algorithms/assets/73040864/2dc37dde-677a-4c9b-8c07-33f0b6dde216)
+![WBC26](https://github.com/MichaelDulin/data-structures-and-algorithms/assets/73040864/aa2feb4f-09d5-4c36-b6e8-271eafd59746)
 
 # Code Challenge 27
 ![WBC27](https://github.com/MichaelDulin/data-structures-and-algorithms/assets/73040864/89ac0ad0-ef64-4104-ab22-fddfa842a3db)
 
+# Code Challenge 28
 
+# Code Challenge 29
 
+# Code Challenge 30
 
 
 
