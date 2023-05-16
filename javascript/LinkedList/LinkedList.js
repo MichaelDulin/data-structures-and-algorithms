@@ -223,13 +223,13 @@ class AnimalShelter extends Queue {
   }
 }
 
-const validateBrackets = (value) => {
-  let splitVal = value.split('');
-  const round = ['(',')'];
-  const curly = ['{','}'];
-  const square = ['[',']'];
-  
-};
+// const validateBrackets = (value) => {
+//   let splitVal = value.split('');
+//   const round = ['(',')'];
+//   const curly = ['{','}'];
+//   const square = ['[',']'];
+
+// };
 
 
 
@@ -240,5 +240,5 @@ module.exports = {
   Queue,
   PseudoQueue,
   AnimalShelter,
-  ValidateBrackets,
+  //ValidateBrackets,
 };
