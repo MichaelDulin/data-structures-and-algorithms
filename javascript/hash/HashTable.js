@@ -1,6 +1,6 @@
 'use strict';
 
-const LinkedList = require('../LinkedList/LinkedList');
+const LinkedList = require('../linkedList/LinkedList');
 
 class HashTable {
   constructor(size) {
@@ -9,7 +9,6 @@ class HashTable {
   }
 
   hash(key) {
-    // String to Number using ascii
     let sum = 0;
     for (let idx in key) {
       sum += key.charCodeAt(idx);
@@ -26,9 +25,6 @@ class HashTable {
     this.buckets[position].add(entry);
   }
 
-  /**
-   * @param {string} key
-   */
   get(key) {
     let intKey = this.hash(key);
     return this.buckets[intKey];
